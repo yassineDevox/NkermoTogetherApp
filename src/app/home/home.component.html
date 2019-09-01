@@ -219,56 +219,7 @@
 
 <!--================ Start Registration Area =================-->
 <div class="section_gap registration_area">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-7">
-                <div class="row clock_sec clockdiv" id="clockdiv">
-                    <div class="col-lg-12">
-                        <h1 class="mb-3">Commencer Maintenant</h1>
-                        <p>
-                            Commencer maintenant avec Aji Nkermo Ensemble et rendez vos travaux en groupe
-                            plus facile et sampa !!
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 offset-lg-1">
-                <div class="register_form">
-                    <h3>Courses for Free</h3>
-                    <p>It is high time for learning</p>
-                    <form class="form_area" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-                        <div class="row">
-                            <div class="col-lg-12 form_group">
-                                <input formConrolName="nom" placeholder="Votre Nom"  type="text"
-                                [ngClass]="{ 'is-invalid': submitted && f.nom.errors }"/>
-                                <div *ngIf="submitted && f.nom.errors" class="invalid-feedback">
-                                    <div *ngIf="f.nom.errors.required">Le nom est obligatoire </div>
-                                </div>
-
-                                <input formConrolName="tel" placeholder="Votre Numero Tel" type="tel"
-                                [ngClass]="{ 'is-invalid': submitted && f.tel.errors }"/>
-                                <div *ngIf="submitted && f.tel.errors" class="invalid-feedback">
-                                    <div *ngIf="f.tel.errors.required">numero telephone est obligatoire </div>
-                                </div>
-
-                                <input
-                                    formConrolName="email"
-                                    placeholder="Votre Addresse mail"
-                                    type="email"/>
-                                    <div *ngIf="submitted && f.email.errors" class="invalid-feedback"
-                                    [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
-                                        <div *ngIf="f.email.errors.required">Addresse Email est obligatoire</div>
-                                    </div>
-                            </div>
-                            <div class="col-lg-12 text-center">
-                                <button class="primary-btn">Creer Mon Compte</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+    <home-registration></home-registration>
 </div>
 <!--================ End Registration Area =================-->
 

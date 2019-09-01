@@ -25,8 +25,6 @@ export class HomeComponent implements AfterViewInit {
   public courses:Array<Course>;
 
   searchForm:FormGroup;
-  registerForm:FormGroup;
-  submittedReg = false;
   submittedSearch = false;
   
   @ViewChild('carousel') course:ElementRef;
@@ -45,11 +43,6 @@ export class HomeComponent implements AfterViewInit {
       searchKey:['',Validators.required]
     })
 
-    this.registerForm = this.formBuilder.group({
-      nom: ['', Validators.required],
-      tel: ['', Validators.required],
-      email: ['', [Validators.required,Validators.email]],
-    })
 
     this.talents = TALENTS;
     this.services = SERVICES;
@@ -66,8 +59,8 @@ export class HomeComponent implements AfterViewInit {
     $("#search_input_box").slideUp("slow");
   }
 
-navbarFixed() {  
-  var nav_offset_top = $("header").height() + 50;
+  navbarFixed() {  
+   var nav_offset_top = $("header").height() + 50;
     if ($(".header_area").length) {
       $(window).scroll(function() {
         var scroll = $(window).scrollTop();
@@ -135,20 +128,6 @@ navbarFixed() {
       });
     }
   }
-   // convenience getter for easy access to form fields
-   get f() { return this.registerForm.controls; }
-
-   onSubmit() {
-       this.submittedReg = true;
-
-       // stop here if form is invalid
-       if (this.registerForm.invalid) {
-           return;
-       }
-
-       // display form values on success
-       alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value, null, 4));
-   }
 
    onSubmitSearch() {
     this.submittedSearch = true;
