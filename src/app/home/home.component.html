@@ -3,14 +3,20 @@
     <div class="main_menu">
         <div class="search_input" id="search_input_box">
             <div class="container">
-                <form class="d-flex justify-content-between" method="" action="">
+                <form [formGroup]="searchForm" (ngSubmit)="onSubmitSearch()" class="d-flex justify-content-between">
                     <input
                         type="text"
                         class="form-control"
                         id="search_input"
-                        placeholder="Search Here"/>
+                        placeholder="Search Here"
+                        formControlName="searchKey"/>
+                        
                     <button type="submit" class="btn"></button>
-                    <span class="ti-close" id="close_search" (click)="closeSearch()" title="Close Search"></span>
+                    <span
+                        class="ti-close"
+                        id="close_search"
+                        (click)="closeSearch()"
+                        title="Close Search"></span>
                 </form>
             </div>
         </div>
@@ -19,7 +25,7 @@
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <a class="navbar-brand logo_h" href="index.html">
-                  <img src="/assets/img/logo.png" alt=""/></a>
+                    <img src="/assets/img/logo.png" alt=""/></a>
                 <button
                     class="navbar-toggler"
                     type="button"
@@ -105,7 +111,9 @@
                             MEILLEUR SERVICE D'ÉDUCATION EN LIGNE AU MONDE
                         </p>
                         <h2 class="text-uppercase mt-4 mb-5">
-                            Aji <span style="color:#fdc632">Nkermo</span> Ensemble
+                            Aji
+                            <span style="color:#fdc632">Nkermo</span>
+                            Ensemble
                         </h2>
                         <div>
                             <a href="#" class="primary-btn2 mb-3 mb-sm-0">Plus d'etails</a>
@@ -218,7 +226,8 @@
                     <div class="col-lg-12">
                         <h1 class="mb-3">Commencer Maintenant</h1>
                         <p>
-                           Commencer maintenant avec Aji Nkermo Ensemble et rendez vos travaux en groupe plus facile et sampa !!
+                            Commencer maintenant avec Aji Nkermo Ensemble et rendez vos travaux en groupe
+                            plus facile et sampa !!
                         </p>
                     </div>
                 </div>
@@ -227,20 +236,32 @@
                 <div class="register_form">
                     <h3>Courses for Free</h3>
                     <p>It is high time for learning</p>
-                    <form class="form_area" id="myForm" action="mail.html" method="post">
+                    <form class="form_area" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
                         <div class="row">
                             <div class="col-lg-12 form_group">
-                                <input name="name" placeholder="Your Name" required="" type="text"/>
-                                <input name="name" placeholder="Your Phone Number" required="" type="tel"/>
+                                <input formConrolName="nom" placeholder="Votre Nom"  type="text"
+                                [ngClass]="{ 'is-invalid': submitted && f.nom.errors }"/>
+                                <div *ngIf="submitted && f.nom.errors" class="invalid-feedback">
+                                    <div *ngIf="f.nom.errors.required">Le nom est obligatoire </div>
+                                </div>
+
+                                <input formConrolName="tel" placeholder="Votre Numero Tel" type="tel"
+                                [ngClass]="{ 'is-invalid': submitted && f.tel.errors }"/>
+                                <div *ngIf="submitted && f.tel.errors" class="invalid-feedback">
+                                    <div *ngIf="f.tel.errors.required">numero telephone est obligatoire </div>
+                                </div>
+
                                 <input
-                                    name="email"
-                                    placeholder="Your Email Address"
-                                    pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$"
-                                    required=""
+                                    formConrolName="email"
+                                    placeholder="Votre Addresse mail"
                                     type="email"/>
+                                    <div *ngIf="submitted && f.email.errors" class="invalid-feedback"
+                                    [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+                                        <div *ngIf="f.email.errors.required">Addresse Email est obligatoire</div>
+                                    </div>
                             </div>
                             <div class="col-lg-12 text-center">
-                                <button class="primary-btn">Submit</button>
+                                <button class="primary-btn">Creer Mon Compte</button>
                             </div>
                         </div>
                     </form>
@@ -257,22 +278,25 @@
         <div class="row justify-content-center">
             <div class="col-lg-5">
                 <div class="main_title">
-                    <h2 class="mb-3">Our Expert Trainers</h2>
+                    <h2 class="mb-3">Nos Profs & Experts</h2>
                     <p>
-                        Replenish man have thing gathering lights yielding shall you
+                        Les professeurs et les experts les meilleurs dans leurs domaines 
                     </p>
                 </div>
             </div>
         </div>
         <div class="row justify-content-center d-flex align-items-center">
-           
-            <div *ngFor="let talent of talents" class="col-lg-3 col-md-6 col-sm-12 single-trainer">
+
+            <div
+                *ngFor="let talent of talents"
+                class="col-lg-3 col-md-6 col-sm-12 single-trainer">
                 <div class="thumb d-flex justify-content-sm-center">
                     <img class="img-fluid" [src]="talent.imgUrl" alt=""/>
                 </div>
                 <div class="meta-text text-sm-center">
                     <h4>{{talent.fullName}}</h4>
-                    <p class="designation">Sr. {{talent.profil}}</p>
+                    <p class="designation">Sr.
+                        {{talent.profil}}</p>
                     <div class="mb-4">
                         <p>
                             {{talent.desc}}
@@ -446,16 +470,24 @@
             </div>
         </div>
         <div class="row footer-bottom d-flex justify-content-between">
-            <p  class="col-lg-8 col-sm-12 footer-text m-0 text-white">
+            <p class="col-lg-8 col-sm-12 footer-text m-0 text-white">
                 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY
                 3.0. -->
-                <span style="color:#002347">  Copyright &copy;</span> <script>
+                <span style="color:#002347">
+                    Copyright &copy;</span>
+                <script>
                     document.write(new Date().getFullYear());
                 </script>
-                <span style="color:#002347"> All rights reserved | This template is made with
-                <i class="ti-heart" aria-hidden="true"></i></span>
-                <span style="color:#002347"> by</span>
-                <a href="https://colorlib.com" target="_blank"><span style="color:#002347"> Colorlib</span></a>
+                <span style="color:#002347">
+                    All rights reserved | This template is made with
+                    <i class="ti-heart" aria-hidden="true"></i>
+                </span>
+                <span style="color:#002347">
+                    by</span>
+                <a href="https://colorlib.com" target="_blank">
+                    <span style="color:#002347">
+                        Colorlib</span>
+                </a>
                 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY
                 3.0. -->
             </p>
@@ -476,28 +508,3 @@
         </div>
     </div>
 </footer>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

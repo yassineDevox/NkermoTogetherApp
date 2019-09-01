@@ -1,7 +1,7 @@
 export const COURSES = [
     {
         id:"1",
-        title:"Etablissement Universitaire",
+        title:"Projets Professionnel ",
         desc:`One make creepeth man bearing their one firmament won't fowl
         meat over sea`,
         imgUrl:"/assets/img/courses/c1.jpg",
@@ -14,7 +14,7 @@ export const COURSES = [
     },
     {
         id:"2",
-        title:"Lycee & College",
+        title:"Lycée & College",
         desc:`One make creepeth man bearing their one firmament won't fowl
         meat over sea`,
         imgUrl:"/assets/img/courses/c2.jpg",
@@ -26,8 +26,8 @@ export const COURSES = [
         nbLikes:70 
     },
     {
-        id:"3",
-        title:"Projets Professionnel",
+        id:"3", 
+        title:"Etablissement Universitaire",
         desc:`One make creepeth man bearing their one firmament won't fowl
         meat over sea`,
         imgUrl:"/assets/img/courses/c3.jpg",
