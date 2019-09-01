@@ -1,5 +1,4 @@
 import { Component, AfterViewInit, ViewChild, ElementRef} from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TALENTS } from '../../mocks/talents.mock';
 import { Talent } from '../../models/talents.model';
 import { Service } from 'src/models/services.model';
@@ -8,6 +7,7 @@ import { Feedback } from 'src/models/feedbacks.model';
 import { FEEDBACKS } from '../../mocks/feedbacks.mock';
 import { Course } from '../../models/coures.model';
 import { COURSES } from '../../mocks/courses.mock';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 declare var $:any;
 @Component({
@@ -24,9 +24,9 @@ export class HomeComponent implements AfterViewInit {
   public usrsFeedback:Array<Feedback>;
   public courses:Array<Course>;
 
-  searchForm:FormGroup;
-  submittedSearch = false;
-  
+  newsLetterForm:FormGroup;
+  submitted = false;
+
   @ViewChild('carousel') course:ElementRef;
   @ViewChild('testiSlider')slider :ElementRef;
 
@@ -38,11 +38,9 @@ export class HomeComponent implements AfterViewInit {
   }
 
   ngOnInit() {
-
-    this.searchForm = this.formBuilder.group({
-      searchKey:['',Validators.required]
+    this.newsLetterForm = this.formBuilder.group({
+      email:['',[Validators.email,Validators.required]]
     })
-
 
     this.talents = TALENTS;
     this.services = SERVICES;
@@ -55,9 +53,7 @@ export class HomeComponent implements AfterViewInit {
       $("#search_input_box").slideToggle("slow");
       $("#search_input").focus();
   }
-  closeSearch(){
-    $("#search_input_box").slideUp("slow");
-  }
+ 
 
   navbarFixed() {  
    var nav_offset_top = $("header").height() + 50;
@@ -129,16 +125,15 @@ export class HomeComponent implements AfterViewInit {
     }
   }
 
-   onSubmitSearch() {
-    this.submittedSearch = true;
+  onSubmitNewsLetter() {
+    this.submitted = true;
 
     // stop here if form is invalid
-    if (this.searchForm.invalid) {
+    if (this.newsLetterForm.invalid) {
         return;
     }
 
     // display form values on success
-    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.searchForm.value, null, 4));
+    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.newsLetterForm.value, null, 4));
   }
-
 }

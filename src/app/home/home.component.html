@@ -1,26 +1,8 @@
 <!--================ Start Header Menu Area =================-->
 <header class="header_area">
     <div class="main_menu">
-        <div class="search_input" id="search_input_box">
-            <div class="container">
-                <form [formGroup]="searchForm" (ngSubmit)="onSubmitSearch()" class="d-flex justify-content-between">
-                    <input
-                        type="text"
-                        class="form-control"
-                        id="search_input"
-                        placeholder="Search Here"
-                        formControlName="searchKey"/>
-
-                    <button type="submit" class="btn"></button>
-                    <span
-                        class="ti-close"
-                        id="close_search"
-                        (click)="closeSearch()"
-                        title="Close Search"></span>
-                </form>
-            </div>
-        </div>
-
+       
+        <home-form-search></home-form-search>
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
@@ -391,19 +373,15 @@
                 <h4>Newsletter</h4>
                 <p>You can trust us. we only send promo offers,</p>
                 <div class="form-wrap" id="mc_embed_signup">
-                    <!-- <form
-
-                        target="_blank"
-                        action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
-                        method="get"
-                        class="form-inline"> -->
+                    <form
+                            [formGroup]="newsLetterForm" 
+                            (ngSubmit)="onSubmitNewsLetter()"
+                        class="form-inline">
                         <input
-                            class="form-control"
-                            name="EMAIL"
+                            
                             placeholder="Your Email Address"
-                            onfocus="this.placeholder = ''"
-                            onblur="this.placeholder = 'Your Email Address'"
-                            required=""
+                            
+                            formControlName="email"
                             type="email"/>
                         <button class="click-btn btn btn-default">
                             <span>subscribe</span>
@@ -417,7 +395,7 @@
                         </div>
 
                         <div class="info"></div>
-                    <!-- </form> -->
+                    </form>
                 </div>
             </div>
         </div>
