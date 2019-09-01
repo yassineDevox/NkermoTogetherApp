@@ -24,8 +24,10 @@ export class HomeComponent implements AfterViewInit {
   public usrsFeedback:Array<Feedback>;
   public courses:Array<Course>;
 
+  searchForm:FormGroup;
   registerForm:FormGroup;
-  submitted = false;
+  submittedReg = false;
+  submittedSearch = false;
   
   @ViewChild('carousel') course:ElementRef;
   @ViewChild('testiSlider')slider :ElementRef;
@@ -38,6 +40,10 @@ export class HomeComponent implements AfterViewInit {
   }
 
   ngOnInit() {
+
+    this.searchForm = this.formBuilder.group({
+      searchKey:['',Validators.required]
+    })
 
     this.registerForm = this.formBuilder.group({
       nom: ['', Validators.required],
@@ -133,7 +139,7 @@ navbarFixed() {
    get f() { return this.registerForm.controls; }
 
    onSubmit() {
-       this.submitted = true;
+       this.submittedReg = true;
 
        // stop here if form is invalid
        if (this.registerForm.invalid) {
@@ -143,5 +149,17 @@ navbarFixed() {
        // display form values on success
        alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value, null, 4));
    }
+
+   onSubmitSearch() {
+    this.submittedSearch = true;
+
+    // stop here if form is invalid
+    if (this.searchForm.invalid) {
+        return;
+    }
+
+    // display form values on success
+    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.searchForm.value, null, 4));
+  }
 
 }
