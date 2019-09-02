@@ -16,32 +16,33 @@
               <div class="register_form">
                   <h3>Courses for Free</h3>
                   <p>It is high time for learning</p>
-                  <form class="form_area" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                  <form class="form_area" [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm)" >
                       <div class="row">
+                          <style>.is-invalid{border-bottom:1px solid red}</style>
                           <div class="col-lg-12 form_group">
-                              <input formConrolName="nom" placeholder="Votre Nom"  type="text"
-                              [ngClass]="{ 'is-invalid': submitted && f.nom.errors }"/>
-                              <div *ngIf="submitted && f.nom.errors" class="invalid-feedback">
-                                  <div *ngIf="f.nom.errors.required">Le nom est obligatoire </div>
+                              <input formControlName="nom" placeholder="Votre Nom"  type="text"
+                              [ngClass]="{ 'is-invalid': submittedReg && f.nom.errors }"/>
+                              <div *ngIf="submittedReg && f.nom.errors">
+                                  <div class="invalid-feedback" *ngIf="f.nom.errors.required">Le nom est obligatoire </div>
                               </div>
 
-                              <input formConrolName="tel" placeholder="Votre Numero Tel" type="tel"
-                              [ngClass]="{ 'is-invalid': submitted && f.tel.errors }"/>
-                              <div *ngIf="submitted && f.tel.errors" class="invalid-feedback">
-                                  <div *ngIf="f.tel.errors.required">numero telephone est obligatoire </div>
+                              <input formControlName="tel" placeholder="Votre Numero Tel" type="text"
+                              [ngClass]="{ 'is-invalid': submittedReg && f.tel.errors }"/>
+                              <div *ngIf="submittedReg && f.tel.errors">
+                                  <div class="invalid-feedback" *ngIf="f.tel.errors.required">numero telephone est obligatoire </div>
                               </div>
 
                               <input
-                                  formConrolName="email"
+                                  formControlName="email"
                                   placeholder="Votre Addresse mail"
-                                  type="email"/>
-                                  <div *ngIf="submitted && f.email.errors" class="invalid-feedback"
-                                  [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
-                                      <div *ngIf="f.email.errors.required">Addresse Email est obligatoire</div>
+                                  type="text"/>
+                                  <div *ngIf="submittedReg && f.email.errors" 
+                                  [ngClass]="{ 'is-invalid': submittedReg && f.email.errors }">
+                                      <div class="invalid-feedback" *ngIf="f.email.errors.required">Addresse Email est obligatoire</div>
                                   </div>
                           </div>
                           <div class="col-lg-12 text-center">
-                              <button class="primary-btn">Creer Mon Compte</button>
+                              <button type="submit" class="primary-btn" >Creer Mon Compte</button>
                           </div>
                       </div>
                   </form>

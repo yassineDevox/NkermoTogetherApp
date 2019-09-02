@@ -10,8 +10,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class RegistrationComponent implements OnInit {
 
   
-  registerForm:FormGroup;
-  submittedReg = false;
+  public registerForm:FormGroup;
+  public submittedReg = false;
 
   constructor(private formBuilder:FormBuilder) { }
 
@@ -24,16 +24,19 @@ export class RegistrationComponent implements OnInit {
     })
   }
 
-     // convenience getter for easy access to form fields
-     get f() { return this.registerForm.controls; }
+    // convenience getter for easy access to form fields
+    public get f() { return this.registerForm.controls; }
 
-     onSubmit() {
+
+     onSubmit(values) {
+
+      console.log(values);
          this.submittedReg = true;
-  
-         // stop here if form is invalid
+
+         //stop here if form is invalid
          if (this.registerForm.invalid) {
-             return;
-         }
+            return;
+        }
   
          // display form values on success
          alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value, null, 4));
