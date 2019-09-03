@@ -1,10 +1,10 @@
 Registration Design :
     ✔ design nav modification @started(19-09-03 16:27) @done(19-09-03 17:56) @lasted(1h29m59s)
     ✔ Toast implementation for checkEmail Response @started(19-09-03 18:03) @done(19-09-03 18:22) @lasted(19m5s)
-    [] Dashboard for the profil @started(19-09-03 18:35)
+    ✘ Dashboard for the profil @started(19-09-03 18:35) @cancelled(19-09-03 19:05) @wasted(30m58s)
     [] AddGroup Page
-    [] About Us Page 
-    [] Contact Us Page
+    [] About Us Page @started(19-09-03 19:20)
+    [] Contact Us Page @started(19-09-03 19:20)
     
 Registration Logic:
     ✔ Send registeration info to the backend search @started(19-09-03 15:52) @done(19-09-03 16:03) @lasted(11m39s)

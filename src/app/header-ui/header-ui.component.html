@@ -1,0 +1,50 @@
+<header [class]="headerColor">
+  <div class="main_menu">
+     
+      <home-form-search></home-form-search>
+      <nav class="navbar navbar-expand-lg navbar-light">
+          <div class="container">
+              <!-- Brand and toggle get grouped for better mobile display -->
+              <a class="navbar-brand logo_h" href="index.html">
+                  <img [src]="logoFor" alt=""/></a>
+              <button
+                  class="navbar-toggler"
+                  type="button"
+                  data-toggle="collapse"
+                  data-target="#navbarSupportedContent"
+                  aria-controls="navbarSupportedContent"
+                  aria-expanded="false"
+                  aria-label="Toggle navigation">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+              </button>
+              <!-- Collect the nav links, forms, and other content for toggling -->
+              <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+                  <ul class="nav navbar-nav menu_nav ml-auto">
+                      <li class="nav-item active">
+                          <a routerLink="/home" class="nav-link" href="#">Home</a>
+                      </li>
+                      <li class="nav-item">
+                          <a routerLink="/about" class="nav-link" href="#">About</a>
+                      </li>
+                      <li class="nav-item">
+                          <a routerLink="/contact" class="nav-link" href="#">Contact</a>
+                      </li>
+                      <li *ngIf="isAuth" class="nav-item">
+                          <a class="nav-link" routerLink="/profil" >Profile</a>
+                      </li>
+                      <li *ngIf="!isAuth" class="nav-item">
+                          <a [ngx-scroll-to]="'#destination'"  style="cursor: pointer" class="nav-link">Creer Compte</a>
+                      </li>
+                      <li class="nav-item">
+                          <a (click)="searchToggle()" class="nav-link search" id="search">
+                              <i class="ti-search"></i>
+                          </a>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+      </nav>
+  </div>
+</header>
