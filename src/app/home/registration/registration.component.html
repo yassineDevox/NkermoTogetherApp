@@ -14,32 +14,28 @@
           </div>
           <div class="col-lg-4 offset-lg-1">
               <div class="register_form">
-                  <h3>Courses for Free</h3>
-                  <p>It is high time for learning</p>
+                  <h3>Inscription</h3>
+                  <p>Creer votre group maintenant</p>
                   <form class="form_area" [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm)" >
                       <div class="row">
                           <style>.is-invalid{border-bottom:1px solid red}</style>
                           <div class="col-lg-12 form_group">
                               <input formControlName="nom" placeholder="Votre Nom"  type="text"
                               [ngClass]="{ 'is-invalid': submittedReg && f.nom.errors }"/>
-                              <div *ngIf="submittedReg && f.nom.errors">
+                              <!-- <div *ngIf="submittedReg && f.nom.errors">
                                   <div class="invalid-feedback" *ngIf="f.nom.errors.required">Le nom est obligatoire </div>
-                              </div>
+                              </div> -->
 
-                              <input formControlName="tel" placeholder="Votre Numero Tel" type="text"
-                              [ngClass]="{ 'is-invalid': submittedReg && f.tel.errors }"/>
-                              <div *ngIf="submittedReg && f.tel.errors">
-                                  <div class="invalid-feedback" *ngIf="f.tel.errors.required">numero telephone est obligatoire </div>
-                              </div>
+                            
 
                               <input
                                   formControlName="email"
                                   placeholder="Votre Addresse mail"
-                                  type="text"/>
-                                  <div *ngIf="submittedReg && f.email.errors" 
-                                  [ngClass]="{ 'is-invalid': submittedReg && f.email.errors }">
+                                  type="text"
+                                  [ngClass]="{ 'is-invalid': submittedReg && f.email.errors }"/>
+                                  <!-- <div *ngIf="submittedReg && f.email.errors" >
                                       <div class="invalid-feedback" *ngIf="f.email.errors.required">Addresse Email est obligatoire</div>
-                                  </div>
+                                  </div> -->
                           </div>
                           <div class="col-lg-12 text-center">
                               <button type="submit" class="primary-btn" >Creer Mon Compte</button>

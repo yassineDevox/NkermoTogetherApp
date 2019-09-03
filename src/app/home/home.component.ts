@@ -16,7 +16,6 @@ declare var $:any;
   styleUrls: ['./home.component.css']
 })
 
-
 export class HomeComponent implements AfterViewInit {
   
   public talents:Array<Talent>;
@@ -26,6 +25,7 @@ export class HomeComponent implements AfterViewInit {
 
   newsLetterForm:FormGroup;
   submitted = false;
+  isAuth = false;
 
   @ViewChild('carousel') course:ElementRef;
   @ViewChild('testiSlider')slider :ElementRef;

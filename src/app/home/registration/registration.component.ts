@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { AuthService } from './auth.service';
 
 @Component({
   selector: 'home-registration',
@@ -13,13 +14,12 @@ export class RegistrationComponent implements OnInit {
   public registerForm:FormGroup;
   public submittedReg = false;
 
-  constructor(private formBuilder:FormBuilder) { }
+  constructor(private formBuilder:FormBuilder,private _auth:AuthService) { }
 
   ngOnInit() {
     
     this.registerForm = this.formBuilder.group({
       nom: ['', Validators.required],
-      tel: ['', Validators.required],
       email: ['', [Validators.required,Validators.email]],
     })
   }
@@ -28,10 +28,10 @@ export class RegistrationComponent implements OnInit {
     public get f() { return this.registerForm.controls; }
 
 
-     onSubmit(values) {
+     onSubmit() {
 
-      console.log(values);
-         this.submittedReg = true;
+         
+          this.submittedReg = true;
 
          //stop here if form is invalid
          if (this.registerForm.invalid) {
@@ -39,8 +39,11 @@ export class RegistrationComponent implements OnInit {
         }
   
          // display form values on success
-         alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value, null, 4));
+        //  alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value, null, 4));
+        this._auth.registerUser(this.registerForm.value).subscribe(
+          res=>console.log(res),
+          err=>console.log(err)
+        )
      }
-  
 
 }

@@ -7,6 +7,10 @@ import { HomeComponent } from './home/home.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RegistrationComponent } from './home/registration/registration.component';
 import { SearchComponent } from './home/search/search.component';
+import {HttpClientModule} from '@angular/common/http';
+import {ScrollToModule} from '@nicky-lenaers/ngx-scroll-to';
+
+
 
 const agoraConfig: AgoraConfig = { AppID: 'APP-ID-HERE' };
 @NgModule({
@@ -20,7 +24,9 @@ const agoraConfig: AgoraConfig = { AppID: 'APP-ID-HERE' };
     BrowserModule,
     AppRoutingModule,
     AngularAgoraRtcModule.forRoot(agoraConfig),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    ScrollToModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

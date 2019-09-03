@@ -1,0 +1,14 @@
+Registration Design :
+    ✔ design nav modification @started(19-09-03 16:27) @done(19-09-03 17:56) @lasted(1h29m59s)
+    [] Toast implementation for checkEmail Response
+    [] Dashboard for the profil 
+    [] AddGroup Page
+    [] About Us Page 
+    [] Contact Us Page
+    
+Registration Logic:
+    ✔ Send registeration info to the backend search @started(19-09-03 15:52) @done(19-09-03 16:03) @lasted(11m39s)
+    ✔ Send registeration info to the backend implementation @started(19-09-03 16:03) @done(19-09-03 16:26) @lasted(23m58s)
+
+Admin Panel :
+    [] configration Part 
