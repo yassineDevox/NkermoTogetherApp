@@ -1,18 +1,19 @@
 import { Component, OnInit, Input, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { SearchComponent } from '../home/search/search.component';
 
 declare var $:any;
 
 @Component({
   selector: 'header-ui',
   templateUrl: './header-ui.component.html',
-  styleUrls: ['./header-ui.component.css']
+  styleUrls: ['./header-ui.component.css'],
 })
 export class HeaderUiComponent implements OnInit ,AfterViewInit{
 
   @Input() logoFor:string="";
   @Input() isAuth:boolean;
   @Input() headerColor:string="";
-  public headerClass:string="header_area";
+  public headerClass:string;
 
   @ViewChild('header') headerEl:ElementRef;
 

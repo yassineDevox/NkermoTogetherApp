@@ -1,6 +1,6 @@
 <div class="search_input" id="search_input_box">
   <div class="container">
-      <form [formGroup]="searchForm" (ngSubmit)="onSubmitSearch()" class="d-flex justify-content-between">
+      <form *ngIf="searchForm" [formGroup]="searchForm" (ngSubmit)="onSubmitSearch()" class="d-flex justify-content-between">
           <input
               type="text"
               class="form-control"

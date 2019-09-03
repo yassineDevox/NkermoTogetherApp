@@ -14,6 +14,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
  
 import { ToastrModule } from 'ngx-toastr';
 import { HeaderUiComponent } from './header-ui/header-ui.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
+import { AboutUsComponent } from './about-us/about-us.component';
  
 
 
@@ -25,6 +27,8 @@ const agoraConfig: AgoraConfig = { AppID: 'APP-ID-HERE' };
     RegistrationComponent,
     SearchComponent,
     HeaderUiComponent,
+    ContactUsComponent,
+    AboutUsComponent,
   ],
   imports: [
     BrowserModule,
