@@ -9,7 +9,11 @@ import { RegistrationComponent } from './home/registration/registration.componen
 import { SearchComponent } from './home/search/search.component';
 import {HttpClientModule} from '@angular/common/http';
 import {ScrollToModule} from '@nicky-lenaers/ngx-scroll-to';
-
+import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+ 
+import { ToastrModule } from 'ngx-toastr';
+ 
 
 
 const agoraConfig: AgoraConfig = { AppID: 'APP-ID-HERE' };
@@ -26,7 +30,10 @@ const agoraConfig: AgoraConfig = { AppID: 'APP-ID-HERE' };
     AngularAgoraRtcModule.forRoot(agoraConfig),
     ReactiveFormsModule,
     HttpClientModule,
-    ScrollToModule.forRoot()
+    ScrollToModule.forRoot(),
+    CommonModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot() // ToastrModule added
   ],
   providers: [],
   bootstrap: [AppComponent]
