@@ -1,6 +1,4 @@
 import { Component, OnInit, Input, ViewChild, ElementRef, AfterViewInit, Output, EventEmitter } from '@angular/core';
-import { SearchComponent } from '../home/search/search.component';
-import { emit } from 'cluster';
 
 declare var $:any;
 

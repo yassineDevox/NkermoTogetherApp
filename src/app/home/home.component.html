@@ -140,11 +140,11 @@
                     <div class="register_form">
                         <h3>Login</h3>
                         <p>Creer votre group maintenant</p>
-                        <form class="form_area" [formGroup]="authForm" (ngSubmit)="onSubmit(registerForm)" >
+                        <form class="form_area" [formGroup]="authForm" (ngSubmit)="onSubmitAuth(authForm)" >
                             <div class="row">
                                 <div class="col-lg-12 form_group">
                                     <input formControlName="pass" placeholder="Votre mot de pass"  type="password"
-                                    [ngClass]="{ 'is-invalid': submittedAuth && f.pass.errors }"/>
+                                    [ngClass]="{ 'is-invalid': submittedAuth && auth.pass.errors }"/>
                                     <!-- <div *ngIf="submittedReg && f.nom.errors">
                                         <div class="invalid-feedback" *ngIf="f.nom.errors.required">Le nom est obligatoire </div>
                                     </div> -->
@@ -155,7 +155,7 @@
                                         formControlName="email"
                                         placeholder="Votre Addresse mail"
                                         type="text"
-                                        [ngClass]="{ 'is-invalid': submittedAuth && f.email.errors }"/>
+                                        [ngClass]="{ 'is-invalid': submittedAuth && auth.email.errors }"/>
                                         <!-- <div *ngIf="submittedReg && f.email.errors" >
                                             <div class="invalid-feedback" *ngIf="f.email.errors.required">Addresse Email est obligatoire</div>
                                         </div> -->

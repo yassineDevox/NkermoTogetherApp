@@ -47,8 +47,8 @@ export class HomeComponent implements AfterViewInit {
     })
     
     this.authForm = this.formBuilder.group({
+      pass:['',Validators.required],
       email:['',[Validators.email,Validators.required]],
-      pass:['',Validators.required]
     });
 
     this.talents = TALENTS;
@@ -135,7 +135,7 @@ export class HomeComponent implements AfterViewInit {
     this.showRegister = show === "login" ? false:true; 
   }
   
-  onsubmitAuth(){
+  onSubmitAuth(){
     this.submittedAuth =  true;
     if(this.authForm.invalid){
       this._toast.error('Veuillez Remplir tout les champs !!',"Connexion Incorrect ");
@@ -144,4 +144,5 @@ export class HomeComponent implements AfterViewInit {
     //appel au service auth 
   }
 
+  public get auth(){return this.authForm.controls;}
 }
