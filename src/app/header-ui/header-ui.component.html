@@ -23,13 +23,13 @@
               <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
                   <ul class="nav navbar-nav menu_nav ml-auto">
                       <li class="nav-item active">
-                          <a routerLink="/home" class="nav-link" href="#">Home</a>
+                          <a [ngx-scroll-to]="'#home'"  class="nav-link">Home</a>
                       </li>
                       <li class="nav-item">
-                          <a routerLink="/about" class="nav-link" href="#">About</a>
+                          <a [ngx-scroll-to]="'#about'"  class="nav-link">About</a>
                       </li>
                       <li class="nav-item">
-                          <a routerLink="/contact" class="nav-link" href="#">Contact</a>
+                          <a [ngx-scroll-to]="'#contact'" class="nav-link">Contact</a>
                       </li>
                       <li *ngIf="isAuth" class="nav-item">
                           <a class="nav-link" routerLink="/profil" >Profile</a>

@@ -11,7 +11,7 @@ declare var $:any;
 export class HeaderUiComponent implements OnInit ,AfterViewInit{
 
   @Input() logoFor:string="";
-  @Input() isAuth:boolean;
+  @Input() isAuth:boolean=false;
   @Input() headerColor:string="";
   public headerClass:string;
 
@@ -25,7 +25,7 @@ export class HeaderUiComponent implements OnInit ,AfterViewInit{
   ngOnInit() {
     this.logoFor = this.logoFor === "home" ? "/assets/img/logo.png":"/assets/img/logo2.png";
     this.headerClass="header_area "+this.headerColor;
-    console.log(this.logoFor," ",this.isAuth," ",this.headerColor);
+    console.log(this.logoFor," ",this.isAuth," ",this.headerClass);
   }
 
   searchToggle(){

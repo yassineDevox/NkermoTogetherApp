@@ -1,0 +1,52 @@
+<div class="container">
+ 
+  <div class="row">
+    <div class="col-lg-3">
+      <div class="contact_info">
+        <div class="info_item">
+          <i class="ti-home"></i>
+          <h6>{{agency.city}}</h6>
+          <p>{{agency.contry}} </p>
+        </div>
+        <div class="info_item">
+          <i class="ti-headphone"></i>
+          <h6><a href="#">{{agency.tel}}</a></h6>
+          <p>{{agency.workingHours}}</p>
+        </div>
+        <div class="info_item">
+          <i class="ti-email"></i>
+          <h6><a href="#">{{agency.addressMailSupport}}</a></h6>
+          <p>Envoiez vos demandes a n'importe quel moment !</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-9">
+      <form class="row contact_form" id="contactForm" [formGroup]="contactForm" (ngSubmit)="onSubmit(contactForm)">
+        <div class="col-md-6">
+          <div class="form-group">
+            <input formControlName="nom" [ngClass]="{ 'is-invalid': submittedReg && f.nom.errors }" type="text" class="form-control" placeholder="Enter your name" />
+          </div>
+          <div class="form-group">
+            <input formControlName="email" placeholder="Votre Addresse mail" type="text" class="form-control"
+              [ngClass]="{ 'is-invalid': submittedReg && f.email.errors }" />
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Enter Subject" formControlName="subject"
+            [ngClass]="{ 'is-invalid': submittedReg && f.subject.errors }" />
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <textarea class="form-control" formConrolName="message" rows="1" placeholder="Entrer Votre Message"
+              ></textarea>
+          </div>
+        </div>
+        <div class="col-md-12 text-right">
+          <button type="submit" value="submit" class="btn primary-btn">
+            Envoyer Message
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

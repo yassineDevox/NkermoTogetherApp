@@ -46,29 +46,9 @@ export class HomeComponent implements AfterViewInit {
     this.services = SERVICES;
     this.usrsFeedback = FEEDBACKS;
     this.courses = COURSES;
-    this.navbarFixed();$("#search_input_box").hide();
   }
 
-  searchToggle(){
-      $("#search_input_box").slideToggle("slow");
-      $("#search_input").focus();
-  }
  
-
-  navbarFixed() {  
-   var nav_offset_top = $("header").height() + 50;
-    if ($(".header_area").length) {
-      $(window).scroll(function() {
-        var scroll = $(window).scrollTop();
-        if (scroll >= nav_offset_top) {
-          $(".header_area").addClass("navbar_fixed");
-        } else {
-          $(".header_area").removeClass("navbar_fixed");
-        }
-      });
-    }
-  }
-
   active_course(){
 
     if ($(this.course.nativeElement).length) {
@@ -135,5 +115,10 @@ export class HomeComponent implements AfterViewInit {
 
     // display form values on success
     alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.newsLetterForm.value, null, 4));
+  }
+  
+  isRegister(isAuth){
+    this.isAuth = isAuth;
+    console.log(isAuth);
   }
 }
