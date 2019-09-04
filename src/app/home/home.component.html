@@ -1,5 +1,5 @@
 <!--================ Start Header Menu Area =================-->
-<header-ui logoFor="home" [isAuth]="isAuth"></header-ui>
+<header-ui (loginOrRegister)="showLoginOrRegister($event)" logoFor="home" [isAuth]="isAuth"></header-ui>
 <!--================ End Header Menu Area =================-->
 
 <!--================ Start Home Banner Area =================-->
@@ -122,7 +122,53 @@
 
 <!--================ Start Registration Area =================-->
 <div id="destination" class="section_gap registration_area">
-    <home-registration (isRegistrated)="isRegister($event)"></home-registration>
+    <home-registration *ngIf="showRegister" (isRegistrated)="isRegister($event)"></home-registration>
+    <div  *ngIf="!showRegister" class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7">
+                    <div class="row clock_sec clockdiv" id="clockdiv">
+                        <div class="col-lg-12">
+                            <h1 class="mb-3">Connectez vous Maintenant</h1>
+                            <p>
+                                Commencer maintenant avec Aji Nkermo Ensemble et rendez vos travaux en groupe
+                                plus facile et sampa !!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 offset-lg-1">
+                    <div class="register_form">
+                        <h3>Login</h3>
+                        <p>Creer votre group maintenant</p>
+                        <form class="form_area" [formGroup]="authForm" (ngSubmit)="onSubmit(registerForm)" >
+                            <div class="row">
+                                <div class="col-lg-12 form_group">
+                                    <input formControlName="pass" placeholder="Votre mot de pass"  type="password"
+                                    [ngClass]="{ 'is-invalid': submittedAuth && f.pass.errors }"/>
+                                    <!-- <div *ngIf="submittedReg && f.nom.errors">
+                                        <div class="invalid-feedback" *ngIf="f.nom.errors.required">Le nom est obligatoire </div>
+                                    </div> -->
+      
+                                  
+      
+                                    <input
+                                        formControlName="email"
+                                        placeholder="Votre Addresse mail"
+                                        type="text"
+                                        [ngClass]="{ 'is-invalid': submittedAuth && f.email.errors }"/>
+                                        <!-- <div *ngIf="submittedReg && f.email.errors" >
+                                            <div class="invalid-feedback" *ngIf="f.email.errors.required">Addresse Email est obligatoire</div>
+                                        </div> -->
+                                </div>
+                                <div class="col-lg-12 text-center">
+                                    <button type="submit" class="primary-btn" >Connexion</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+    </div>
 </div>
 <!--================ End Registration Area =================-->
 

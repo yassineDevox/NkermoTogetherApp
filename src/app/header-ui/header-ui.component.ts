@@ -1,5 +1,6 @@
-import { Component, OnInit, Input, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef, AfterViewInit, Output, EventEmitter } from '@angular/core';
 import { SearchComponent } from '../home/search/search.component';
+import { emit } from 'cluster';
 
 declare var $:any;
 
@@ -14,6 +15,8 @@ export class HeaderUiComponent implements OnInit ,AfterViewInit{
   @Input() isAuth:boolean=false;
   @Input() headerColor:string="";
   public headerClass:string;
+
+  @Output() loginOrRegister = new EventEmitter<string>();
 
   @ViewChild('header') headerEl:ElementRef;
 
@@ -48,5 +51,15 @@ export class HeaderUiComponent implements OnInit ,AfterViewInit{
       }
     }
 
+    onLogin(){
+      this.loginOrRegister.emit("login");
+    }
 
+    onRegister(){
+      this.loginOrRegister.emit("register");
+    }
+
+    onLogout(){
+      this.isAuth=false;
+    }
 }

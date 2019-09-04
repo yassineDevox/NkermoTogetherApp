@@ -29,13 +29,19 @@
                           <a [ngx-scroll-to]="'#about'"  class="nav-link">About</a>
                       </li>
                       <li class="nav-item">
-                          <a [ngx-scroll-to]="'#contact'" class="nav-link">Contact</a>
-                      </li>
+                            <a [ngx-scroll-to]="'#contact'" class="nav-link">Contact</a>
+                        </li>
+                        <li *ngIf="!isAuth" class="nav-item">
+                                <a (click)="onLogin()" [ngx-scroll-to]="'#destination'" class="nav-link">Connexion</a>
+                            </li>
+                            <li *ngIf="isAuth" class="nav-item">
+                                    <a (click)="onLogout()"  class="nav-link">Deconnexion</a>
+                                </li>
                       <li *ngIf="isAuth" class="nav-item">
                           <a class="nav-link" routerLink="/profil" >Profile</a>
                       </li>
                       <li *ngIf="!isAuth" class="nav-item">
-                          <a [ngx-scroll-to]="'#destination'"  style="cursor: pointer" class="nav-link">Creer Compte</a>
+                          <a (click)="onRegister()" [ngx-scroll-to]="'#destination'"  style="cursor: pointer" class="nav-link">Inscription</a>
                       </li>
                       <li class="nav-item">
                           <a (click)="searchToggle()" class="nav-link search" id="search">

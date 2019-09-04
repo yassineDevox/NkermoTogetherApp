@@ -8,6 +8,7 @@ import { FEEDBACKS } from '../../mocks/feedbacks.mock';
 import { Course } from '../../models/coures.model';
 import { COURSES } from '../../mocks/courses.mock';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 declare var $:any;
 @Component({
@@ -24,13 +25,16 @@ export class HomeComponent implements AfterViewInit {
   public courses:Array<Course>;
 
   newsLetterForm:FormGroup;
+  authForm:FormGroup;
   submitted = false;
   isAuth = false;
+  showRegister=false;
+  submittedAuth=false;
 
   @ViewChild('carousel') course:ElementRef;
   @ViewChild('testiSlider')slider :ElementRef;
 
-  constructor(private formBuilder:FormBuilder){}
+  constructor(private formBuilder:FormBuilder,private _toast:ToastrService){}
 
   ngAfterViewInit(): void {
     this.active_course();
@@ -41,6 +45,11 @@ export class HomeComponent implements AfterViewInit {
     this.newsLetterForm = this.formBuilder.group({
       email:['',[Validators.email,Validators.required]]
     })
+    
+    this.authForm = this.formBuilder.group({
+      email:['',[Validators.email,Validators.required]],
+      pass:['',Validators.required]
+    });
 
     this.talents = TALENTS;
     this.services = SERVICES;
@@ -121,4 +130,18 @@ export class HomeComponent implements AfterViewInit {
     this.isAuth = isAuth;
     console.log(isAuth);
   }
+
+  showLoginOrRegister(show):void {
+    this.showRegister = show === "login" ? false:true; 
+  }
+  
+  onsubmitAuth(){
+    this.submittedAuth =  true;
+    if(this.authForm.invalid){
+      this._toast.error('Veuillez Remplir tout les champs !!',"Connexion Incorrect ");
+      return;
+    }
+    //appel au service auth 
+  }
+
 }
