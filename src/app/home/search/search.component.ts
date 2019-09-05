@@ -9,7 +9,7 @@ declare var $:any;
 })
 export class SearchComponent implements OnInit {
 
-  
+
   searchForm:FormGroup;
   submittedSearch = false;
 

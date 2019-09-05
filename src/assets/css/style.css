@@ -3060,8 +3060,7 @@ h6 {
     margin-left: 0px; }
 
   .header_area .navbar-collapse {
-    max-height: 340px;
-    overflow-y: scroll; }
+    max-height: 340px; }
 
   .header_area .navbar .nav .nav-item.submenu ul .nav-item .nav-link {
     padding: 0px 15px; }
@@ -3226,7 +3225,9 @@ h6 {
   /* Main Menu Area css
 	============================================================================================ */
   .header_area .navbar-collapse {
-    max-height: 250px; }
+    max-height: 250px; 
+    transition: 1s all;
+  }
 
   /* End Main Menu Area css
 	============================================================================================ */

@@ -17,6 +17,8 @@ export class HeaderUiComponent implements OnInit ,AfterViewInit{
   @Output() loginOrRegister = new EventEmitter<string>();
 
   @ViewChild('header') headerEl:ElementRef;
+  @ViewChild('menuIcon') menuIcon : ElementRef;
+  public showRespMenu = false;
 
   constructor() { }
 
@@ -26,7 +28,23 @@ export class HeaderUiComponent implements OnInit ,AfterViewInit{
   ngOnInit() {
     this.logoFor = this.logoFor === "home" ? "/assets/img/logo.png":"/assets/img/logo2.png";
     this.headerClass="header_area "+this.headerColor;
-    console.log(this.logoFor," ",this.isAuth," ",this.headerClass);
+    //console.log(this.logoFor," ",this.isAuth," ",this.headerClass);
+    this.showRespensiveMenu();
+  }
+
+  showRespensiveMenu(){
+    $(this.menuIcon.nativeElement).click(()=>{
+      if(!this.showRespMenu){
+        $(this.menuIcon.nativeElement).attr("aria-expanded",true);
+        this.showRespMenu=true;
+        $('div.navbar-collapse').show('slow');      
+      }else{
+        $(this.menuIcon.nativeElement).attr("aria-expanded",false);
+        this.showRespMenu=false;
+        $('div.navbar-collapse').hide('slow'); 
+      }
+      
+    });
   }
 
   searchToggle(){
