@@ -1,57 +1,52 @@
 <header [class]="headerClass" #header>
-  <div class="main_menu">
-     
-      <home-form-search></home-form-search>
-      <nav class="navbar navbar-expand-lg navbar-light">
-          <div class="container">
-              <!-- Brand and toggle get grouped for better mobile display -->
-              <a class="navbar-brand logo_h" href="index.html">
-                  <img [src]="logoFor" alt=""/></a>
-              <button
-                  class="navbar-toggler"
-                  type="button"
-                  data-toggle="collapse"
-                  data-target="#navbarSupportedContent"
-                  aria-controls="navbarSupportedContent"
-                  aria-expanded="false"
-                  aria-label="Toggle navigation"
-                  #menuIcon>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-              </button>
-              <!-- Collect the nav links, forms, and other content for toggling -->
-              <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
-                  <ul class="nav navbar-nav menu_nav ml-auto">
-                      <li class="nav-item active">
-                          <a [ngx-scroll-to]="'#home'"  class="nav-link">Home</a>
-                      </li>
-                      <li class="nav-item">
-                          <a [ngx-scroll-to]="'#about'"  class="nav-link">About</a>
-                      </li>
-                      <li class="nav-item">
+    <div class="main_menu">
+
+        <home-form-search></home-form-search>
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <a class="navbar-brand logo_h" href="index.html">
+                    <img [src]="logoFor" alt="" /></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation" #menuIcon>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+                    <ul class="nav navbar-nav menu_nav ml-auto">
+                        <li class="nav-item active">
+                            <a [ngx-scroll-to]="'#home'" class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a [ngx-scroll-to]="'#about'" class="nav-link">About</a>
+                        </li>
+                        <li class="nav-item">
                             <a [ngx-scroll-to]="'#contact'" class="nav-link">Contact</a>
                         </li>
                         <li *ngIf="!isAuth" class="nav-item">
-                                <a (click)="onLogin()" [ngx-scroll-to]="'#destination'" class="nav-link">Connexion</a>
-                            </li>
-                            <li *ngIf="isAuth" class="nav-item">
-                                    <a (click)="onLogout()"  class="nav-link">Deconnexion</a>
-                                </li>
-                      <li *ngIf="isAuth" class="nav-item">
-                          <a class="nav-link" routerLink="/profil" >Profile</a>
-                      </li>
-                      <li *ngIf="!isAuth" class="nav-item">
-                          <a (click)="onRegister()" [ngx-scroll-to]="'#destination'"  style="cursor: pointer" class="nav-link">Inscription</a>
-                      </li>
-                      <li class="nav-item">
-                          <a (click)="searchToggle()" class="nav-link search" id="search">
-                              <i class="ti-search"></i>
-                          </a>
-                      </li>
-                  </ul>
-              </div>
-          </div>
-      </nav>
-  </div>
+                            <a (click)="onLogin()" [ngx-scroll-to]="'#destination'" class="nav-link">Connexion</a>
+                        </li>
+                        <li *ngIf="isAuth" class="nav-item">
+                            <a (click)="onLogout()" class="nav-link">Deconnexion</a>
+                        </li>
+                        <li *ngIf="isAuth" class="nav-item">
+                            <a class="nav-link" routerLink="/pub">Profile</a>
+                        </li>
+                        <li *ngIf="!isAuth" class="nav-item">
+                            <a (click)="onRegister()" [ngx-scroll-to]="'#destination'" style="cursor: pointer"
+                                class="nav-link">Inscription</a>
+                        </li>
+                        <li class="nav-item">
+                            <a (click)="searchToggle()" class="nav-link search" id="search">
+                                <i class="ti-search"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
 </header>

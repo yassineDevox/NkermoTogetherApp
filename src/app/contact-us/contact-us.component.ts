@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Agency } from '../../models/agency.models';
+import { Agency } from '../../models/agency.model';
 import { OUR_AGENCY } from '../../mocks/agency.mock';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';

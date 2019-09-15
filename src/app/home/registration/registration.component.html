@@ -21,20 +21,12 @@
                           <div class="col-lg-12 form_group">
                               <input formControlName="nom" placeholder="Votre Nom"  type="text"
                               [ngClass]="{ 'is-invalid': submittedReg && f.nom.errors }"/>
-                              <!-- <div *ngIf="submittedReg && f.nom.errors">
-                                  <div class="invalid-feedback" *ngIf="f.nom.errors.required">Le nom est obligatoire </div>
-                              </div> -->
-
-                            
-
                               <input
                                   formControlName="email"
                                   placeholder="Votre Addresse mail"
                                   type="text"
                                   [ngClass]="{ 'is-invalid': submittedReg && f.email.errors }"/>
-                                  <!-- <div *ngIf="submittedReg && f.email.errors" >
-                                      <div class="invalid-feedback" *ngIf="f.email.errors.required">Addresse Email est obligatoire</div>
-                                  </div> -->
+                               
                           </div>
                           <div class="col-lg-12 text-center">
                               <button type="submit" class="primary-btn" >Creer Mon Compte</button>

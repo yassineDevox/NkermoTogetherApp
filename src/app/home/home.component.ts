@@ -27,7 +27,7 @@ export class HomeComponent implements AfterViewInit {
   newsLetterForm:FormGroup;
   authForm:FormGroup;
   submitted = false;
-  isAuth = false;
+  isAuth = true;
   showRegister=false;
   submittedAuth=false;
 

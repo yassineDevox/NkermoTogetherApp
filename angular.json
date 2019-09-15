@@ -30,7 +30,8 @@
             "scripts": [
               "node_modules/jquery/dist/jquery.js",
               "src/assets/vendor/owl-carousel/owl.carousel.min.js",
-              "src/assets/js/owl-carousel-thumb.min.js"
+              "src/assets/js/owl-carousel-thumb.min.js",
+              "src/assets/plugins/jquery.slimscroll.js"
             ],
             "es5BrowserSupport": true
           },
