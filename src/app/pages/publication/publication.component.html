@@ -1,0 +1,421 @@
+<section class="newsfeed">
+  <div class="container-fluid">
+    <div class="row" style="display: flex; justify-content: center;">
+
+      <!--/ col-lg-3 -->
+
+
+
+      <div class="col-sm-9">
+        <div class="col-lg-9">
+
+          <div class="suggestion-box full-width">
+
+            <div class="box">
+              <form 
+                    [formGroup]="publicationForm" 
+                    (ngSubmit)="onSubmit(publicationForm)"> 
+
+                <textarea 
+                          formControlName="desc"
+                          class="form-control no-border" rows="3" 
+                          placeholder="Type something..." 
+                          style="font-size: 18px; height: 78px; border: none;">
+                </textarea>
+              
+              <div class="box-footer clearfix">
+                <button type="submit" class="kafe-btn kafe-btn-mint-small pull-right btn-sm">Publier</button>
+                <ul class="nav nav-pills nav-sm">
+                  <li class="nav-item"> <label class="label-upload-serie input-border"> 
+                    <input formControlName="photo" 
+                    class="" type="file"
+                        size="60">
+                      <i class="fa fa-camera text-muted-color"></i> Photo</label>
+                  </li>
+                  <li class="nav-item"> <label class="label-upload-serie input-border"> 
+                    <input formControlName="video" 
+                    type="file" size="60">
+                      <i class="fa fa-video text-muted-color"></i>Video</label>
+                  </li>
+                  <li class="nav-item"> <label class="label-upload-serie input-border"> 
+                    <input formControlName="doc" type="file" size="60" />
+                      <i class="fa fa-file text-muted-color"></i> Document</label>
+                  </li>  
+                </ul>
+              
+              </div>
+            </form>
+          </div>
+
+            <!--suggestions-list end-->
+          </div>
+        </div>
+        <div class="col-lg-9">
+
+
+
+          
+
+        </div>
+        <!--/ col-lg-6 -->
+
+
+
+
+        <div class="col-lg-3">
+
+         
+
+          <div class="suggestion-box full-width">
+              <div class="box">
+
+                  <!-- <form>
+      
+                    <textarea class="form-control no-border" rows="3" placeholder="Type something..."></textarea>
+                  </form> -->
+                </div>
+
+
+            <div class="suggestions-list">
+              <div *ngFor="let sg of sugessions" class="suggestion-body">
+                <img class="img-responsive img-circle" [src]="sg.usrAvatar" alt="Image">
+                <div class="name-box">
+                  <h4>{{sg.fullName}}</h4>
+                </div>
+                <span><i class="fa fa-plus"></i></span>
+              </div>
+            </div>
+            <!--suggestions-list end-->
+          </div>
+          <div class="trending-box">
+              <div class="row">
+                <h3>My recently saved</h3>
+                <!-- <ng-container *ngFor="let i of [0,2]">
+
+                  <div class="d-flex">
+                    <div class="col-lg-6" >
+                      <a [href]="trends[i].link">
+                        <img [src]="trend.img" class="img-responsive" alt="Image">
+                      </a>
+                    </div>
+                    <div class="col-lg-6" >
+                        <a [href]="trends[i+1].link">
+                          <img [src]="trend.img" class="img-responsive" alt="Image">
+                        </a>
+                      </div>
+                        
+                  </div>
+                </ng-container> -->
+               <a href="">see more</a>
+              
+              </div>
+              
+
+                 </div>
+        </div>
+        
+      </div>
+    </div>
+    <!--/ row -->
+  </div>
+  <!--/ container -->
+</section>
+<!--/ newsfeed -->
+
+<div id="myModalForm" class="modal fade" role="dialog">
+  <div class="col-lg-3">
+
+
+
+    
+    <div class="suggestion-box full-width">
+      <div class="box">
+
+        <!-- <form>
+          <textarea class="form-control no-border" 
+                    rows="3" 
+                    placeholder="Type something..." 
+                    style="font-size: 18px; height: 78px; border: none;">
+          </textarea>
+         </form> -->
+
+        <div class="box-footer clearfix">
+          <button class="kafe-btn kafe-btn-mint-small pull-right btn-sm">Upload</button>
+          <ul class="nav nav-pills nav-sm">
+            <li class="nav-item"> <label class="label-upload-serie"> 
+              <input type="file" size="60"> <i class="fa fa-camera text-muted"></i></label>
+            </li>
+            <li class="nav-item"> <label class="label-upload-serie"> 
+              <input type="file" size="60"> <i class="fa fa-video text-muted"></i></label>
+            </li>
+            <li class="nav-item"> <label class="label-upload-serie"> 
+              <input type="file" size="60"> <i class="fa fa-file text-muted"></i></label>
+            </li>
+
+          </ul>
+       
+        </div>
+      </div>
+      <div class="suggestions-list">
+        <div class="suggestion-body">
+          <img class="img-responsive img-circle" src="assets/img/users/17.jpeg" alt="Image">
+          <div class="name-box">
+            <h4>Anthony McCartney</h4>
+            <span>@antony</span>
+          </div>
+          <span><i class="fa fa-plus"></i></span>
+        </div>
+        <div class="suggestion-body">
+          <img class="img-responsive img-circle" src="assets/img/users/16.jpg" alt="Image">
+          <div class="name-box">
+            <h4>Sean Coleman</h4>
+            <span>@sean</span>
+          </div>
+          <span><i class="fa fa-plus"></i></span>
+        </div>
+        <div class="suggestion-body">
+          <img class="img-responsive img-circle" src="assets/img/users/14.jpg" alt="Image">
+          <div class="name-box">
+            <h4>Francis Long</h4>
+            <span>@francis</span>
+          </div>
+          <span><i class="fa fa-plus"></i></span>
+        </div>
+        <div class="suggestion-body">
+          <img class="img-responsive img-circle" src="assets/img/users/11.jpg" alt="Image">
+          <div class="name-box">
+            <h4>Vanessa Wells</h4>
+            <span>@vannessa</span>
+          </div>
+          <span><i class="fa fa-plus"></i></span>
+        </div>
+        <div class="suggestion-body">
+          <img class="img-responsive img-circle" src="assets/img/users/9.jpg" alt="Image">
+          <div class="name-box">
+            <h4>Anna Morgan</h4>
+            <span>@anna</span>
+          </div>
+          <span><i class="fa fa-plus"></i></span>
+        </div>
+        <div class="suggestion-body">
+          <img class="img-responsive img-circle" src="assets/img/users/8.jpg" alt="Image">
+          <div class="name-box">
+            <h4>Clifford Graham</h4>
+            <span>@clifford</span>
+          </div>
+          <span><i class="fa fa-plus"></i></span>
+        </div>
+      </div>
+      <!--suggestions-list end-->
+      
+    </div>
+
+  </div>
+
+ 
+</div>
+
+
+
+<!-- ==============================================
+     Modal Section
+     =============================================== -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog" style="width: 1000px; height: 600px;">
+    <div class="modal-content" style="height: 700px;">
+      <div class="modal-body">
+
+        <div class="row">
+
+          <div class="col-md-8 modal-image">
+
+            <img class="img-responsive" src="assets/img/posts/post1.jpg" alt="Image" />
+          </div>
+
+
+          <!--/ col-md-8 -->
+          <div class="col-md-4 modal-meta">
+            <div class="modal-meta-top">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+              </button>
+              <!--/ button -->
+              <div class="img-poster clearfix">
+                <a href=""><img class="img-responsive img-circle" src="assets/img/users/18.jpg" alt="Image" /></a>
+                <strong><a href="">Benjamin</a></strong>
+                <span>12 minutes ago</span><br />
+                <a href="" class="kafe kafe-btn-mint-small"><i class="fa fa-check-square"></i> Following</a>
+              </div>
+              <div class="title-post-comment">
+                Aujourd’hui, Je m'adresse à vous mes contacts LinkedIn et je serai
+                très reconnaissante si vous pouvez aider Samira HMIDDOUCH
+                à décrocher sa première opportunité dans le domaine professionnel.
+                Un simple "J'AIME" de votre part sera bénéfique pour sa recherche. 😉😆
+
+                <br>
+              </div>
+
+              <!--/ img-poster -->
+
+              <ul class="img-comment-list">
+                <li>
+                  <div class="comment-img">
+                    <img src="assets/img/users/17.jpeg" class="img-responsive img-circle" alt="Image" />
+                  </div>
+                  <div class="comment-text">
+                    <strong><a href="">Anthony McCartney</a></strong>
+                    <p style="color:black;">Hello this is a test comment.</p> <span class="date sub-text">on December
+                      5th, 2016</span>
+                  </div>
+                </li>
+                <!--/ li -->
+                <li>
+                  <div class="comment-img">
+                    <img src="assets/img/users/15.jpg" class="img-responsive img-circle" alt="Image" />
+                  </div>
+                  <div class="comment-text">
+                    <strong><a href="">Vanessa Wells</a></strong>
+                    <p style="color:black;">Hello this is a test comment and this comment is particularly very long and
+                      it goes on and on
+                      and on.</p> <span>on December 5th, 2016</span>
+                  </div>
+                </li>
+                <!--/ li -->
+                <li>
+                  <div class="comment-img">
+                    <img src="assets/img/users/14.jpg" class="img-responsive img-circle" alt="Image" />
+                  </div>
+                  <div class="comment-text">
+                    <strong><a href="">Sean Coleman</a></strong>
+                    <p class="" style="color:black;">Hello this is a test comment.</p> <span class="date sub-text">on
+                      December 5th, 2016</span>
+                  </div>
+                </li>
+                <!--/ li -->
+                <li>
+                  <div class="comment-img">
+                    <img src="assets/img/users/13.jpeg" class="img-responsive img-circle" alt="Image" />
+                  </div>
+                  <div class="comment-text">
+                    <strong><a href="">Anna Morgan</a></strong>
+                    <p class="">Hello this is a test comment.</p> <span class="date sub-text">on December 5th, 2016</span>
+                  </div>
+                </li>
+                <!--/ li -->
+                <li>
+                  <div class="comment-img">
+                    <img src="assets/img/users/3.jpg" class="img-responsive img-circle" alt="Image" />
+                  </div>
+                  <div class="comment-text">
+                    <strong><a href="">Allison Fowler</a></strong>
+                    <p class="" style="color:black;">Hello this is a test comment.</p> <span class="date sub-text">on
+                      December 5th, 2016</span>
+                  </div>
+                </li>
+                <!--/ li -->
+              </ul>
+              <!--/ comment-list -->
+
+              <div class="modal-meta-bottom">
+                <ul>
+                  <li><a class="modal-like" href="#"><i class="fa fa-heart"></i></a><span class="modal-one"> 786,286</span>
+                    |
+                    <a class="modal-comment" href="#"><i class="fa fa-comments"></i></a><span> 786,286</span> </li>
+                  <li>
+                    <span class="thumb-xs">
+                      <img class="img-responsive img-circle" src="assets/img/users/13.jpeg" alt="Image">
+                    </span>
+                    <div class="comment-body">
+                      <input class="form-control input-sm" type="text" placeholder="Write your comment...">
+                    </div>
+                    <!--/ comment-body -->
+                  </li>
+                </ul>
+              </div>
+              <!--/ modal-meta-bottom -->
+
+            </div>
+            <!--/ modal-meta-top -->
+          </div>
+          <!--/ col-md-4 -->
+
+        </div>
+        <!--/ row -->
+      </div>
+      <!--/ modal-body -->
+
+    </div>
+    <!--/ modal-content -->
+  </div>
+  <!--/ modal-dialog -->
+</div>
+<!--/ modal -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ==============================================
+     Scripts
+     =============================================== -->
+
+
+
+
+
+
+
+<!-- 
+  <div class="container">
+    <div class="row">
+        <div class="col-sm-3 border" >aa</div>
+        <div class="col-xl-6 border">publication
+          <div class="">
+            <div class="col-xl border for-padd">
+              <div class="person" >
+                <ul class="list-person">
+                  <li><img class="avatar" src="../assets/jaw.jpg" alt=""></li>
+                  <li >jawadi zouhair  </li>
+                </ul>
+                
+              </div>
+              <div class="title">
+                <p>Containers provide a means to center and horizontally pad your site’s contents. Use .container 
+                  for a responsive pixel width or .container-fluid for width: 100% across all viewport and device sizes.</p>
+  
+                  <img class="image-pub" src="../assets/pub.png" alt="">
+              </div>
+              <div class="list-person">
+                  <ul >
+                      <li><img class="list-parti" src="../assets/jaw.jpg" alt=""></li>
+                      <li ><img class="list-parti" src="../assets/2.jpg" alt=""></li>
+                      <li ><img class="list-parti" src="../assets/3.jpg" alt=""></li>
+                      <li ><img class="list-parti" src="../assets/4.jpg" alt=""></li>
+                    </ul>
+                    <div class="cardbox-like">
+                        <ul>
+                       <li><a href="#"><i class="fa fa-heart"></i></a><span> 786,286</span></li>
+                         <li><a href="#" title="" class="com"><i class="fa fa-comments"></i></a> <span class="span-last"> 126,400</span></li>
+                       </ul>
+                    </div>
+              </div>
+  
+            </div>
+  
+          </div>
+        </div>
+        <div class="col-sm-3 border">cc</div>
+    </div>
+  <br>
+   
+  
+  </div>
+  
+  -->
